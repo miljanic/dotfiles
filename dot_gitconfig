@@ -1,0 +1,15 @@
+[user]
+	name = Pavle Portic
+	email = pavle.portic@tilda.center
+	signingkey = 6758ACE46AA2A849
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[commit]
+	gpgsign = true
+[pull]
+	rebase = true
+

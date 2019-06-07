@@ -1,0 +1,16 @@
+# vim: ft=zsh
+# Wrapper function for pbincli for easier output parsing
+
+LOGFILE="$HOME/.local/share/pbincli/pbincli.log"
+DATADIR="$HOME/.local/share/pbincli"
+
+mkdir -p $DATADIR
+echo "-------------------------------------------" >> $LOGFILE
+date --iso-8601=seconds >> $LOGFILE
+
+OUTPUT=$(pbincli send $@)
+echo $OUTPUT >> $LOGFILE
+echo "" >> $LOGFILE
+
+echo $OUTPUT | tail -n1 | cut -d $'\t' -f 3
+

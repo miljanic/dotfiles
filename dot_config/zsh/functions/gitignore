@@ -1,0 +1,10 @@
+# Function to add files and folders to the .gitignore file
+
+if (( $# < 1 )); then
+	echo "Need at least one argument"
+fi
+
+for var in "$@"; do
+	echo "$var" >> .gitignore
+done
+

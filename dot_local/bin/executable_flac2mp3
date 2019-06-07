@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+ffmpeg -n -i "$1" -acodec libmp3lame -ab 320k -map_metadata 0 -id3v2_version 3 "$2" &> /dev/null
+

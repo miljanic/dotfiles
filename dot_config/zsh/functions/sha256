@@ -1,0 +1,4 @@
+# Function to Calculate the sha256sum of a string
+
+echo -n "$@" | sha256sum | base64 | head -n1 | tr -d '\n'
+

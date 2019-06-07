@@ -1,0 +1,148 @@
+# vim: ft=zsh
+# History settings
+HISTFILE=~/.config/zsh/histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS
+
+# Misc options
+setopt autocd extendedglob notify
+# setopt SOURCE_TRACE
+unsetopt beep nomatch
+bindkey -v
+
+source ~/.config/zsh/antigen.zsh
+
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
+
+# Load plugins from oh-my-zsh
+antigen bundle archlinux
+antigen bundle aws
+antigen bundle colored-man-pages
+antigen bundle colorize
+antigen bundle common-aliases
+antigen bundle copybuffer
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle extract
+antigen bundle git
+
+# Additional antigen plugins
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle zsh-users/zsh-completions
+
+# Load theme
+antigen theme https://gitlab.theedgeofrage.com/TheEdgeOfRage/boban-zsh.git
+antigen apply
+
+# Completion options
+zstyle :compinstall filename '$HOME/.zshrc'
+zstyle ':completion:*' menu select
+fpath=(~/.config/zsh/completions ~/.config/zsh/functions $fpath)
+autoload -Uz compinit && compinit
+autoload -Uz ~/.config/zsh/functions/*
+
+# Aliases
+alias '...'='../..'
+alias '....'='../../..'
+alias '.....'='../../../..'
+alias '......'='../../../../..'
+alias '.......'='../../../../../..'
+alias '........'='../../../../../../..'
+alias ls='ls --group-directories-first --color=always --time-style=long-iso'
+alias cl=clear
+alias cdl='cd ~/ && cl'
+alias rmr='rm -rIf'
+alias mkdir='mkdir -p'
+alias df='df -h'
+alias ran=ranger
+alias -g WC='| wc -l'
+alias rcp='rsync -rPv'
+alias cal='cal -m'
+alias grep='grep -Hn --color=always'
+alias -g NO='>/dev/null 2>&1'
+alias -g clip='xclip -selection c'
+alias db='sudo duplicity-backup -c /etc/duplicity/duplicity-backup.conf'
+alias wakerouter='wol 18:a9:05:39:c4:4d'
+alias myip='curl icanhazip.com'
+alias -g vim='nvim'
+alias manage='python manage.py'
+alias zpool='sudo zpool'
+alias 'zpool import'='zpool import -d /dev/disk/by-id'
+alias zfs='sudo zfs'
+alias fdisk='sudo fdisk'
+alias cfn='cfn-lint'
+alias diff='diff -y --suppress-common-lines'
+alias -g HASH='| sha256sum | base64 H -n1 | clip'
+alias cz=chezmoi
+
+# Systemctl aliases
+alias sctl='sudo systemctl'
+alias sstatus='sudo systemctl status'
+alias sstart='sudo systemctl start'
+alias srestart='sudo systemctl restart'
+alias sreload='sudo systemctl reload'
+alias sstop='sudo systemctl stop'
+alias senable='sudo systemctl enable'
+alias sdisable='sudo systemctl disable'
+alias hib='sudo systemctl suspend'
+
+alias suctl='systemctl --user'
+alias sustatus='systemctl --user status'
+alias sustart='systemctl --user start'
+alias surestart='systemctl --user restart'
+alias sureload='systemctl --user reload'
+alias sustop='systemctl --user stop'
+alias suenable='systemctl --user enable'
+alias sudisable='systemctl --user disable'
+
+# Oh my zsh alias override
+alias gcom='gco master'
+alias yar='yay'
+alias -g du='du -sh'
+alias -g duf='du -sh * | sort -h'
+alias -g dufa='du -sh * .* | sort -h'
+alias la='ls -a'
+alias ll='ls -lah'
+unalias -m 'fd'
+unalias -m 'ff'
+unalias -m '_'
+unalias -m 'please'
+unalias -m 'rm'
+
+# Variable exports
+export VISUAL="nvim"
+export EDITOR="nvim"
+export BROWSER='firefox'
+export XDG_CONFIG_HOME="$HOME/.config"
+export MAKEFLAGS="-j $(nproc --all)"
+export GPG_TTY=$(tty)
+export ANDROID_HOME="$HOME/.android/sdk"
+export PATH="$HOME/.local/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$PATH"
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export LC_ALL="en_DK.UTF-8"
+
+# Bind home and end
+bindkey "\033[H" beginning-of-line
+bindkey "\033[F" end-of-line
+
+# zle -N zle-line-init
+TRAPWINCH() {
+	zle && { zle reset-prompt; zle -R }
+}
+
+# Load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow -g "!{.git,node_modules,__pycache__}/*" 2> /dev/null'
+export FZF_DEFAULT_OPTS='
+	--color fg:#928374,bg:#282828,hl:#fb4934
+	--color fg+:#b8bb26,bg+:#3c3836,hl+:#fb4934
+	--color info:#fe8019,prompt:#83a598,header:#83a598
+	--color pointer:#fb4934,marker:#fb4934,spinner:#ffff60
+'
+
+source ~/.local/bin/start-ssh-agent
+

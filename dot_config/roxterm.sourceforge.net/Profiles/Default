@@ -1,0 +1,13 @@
+[roxterm profile]
+font=Pragmata Pro 11
+always_show_tabs=0
+colour_scheme=Default
+bell_highlights_tab=0
+audible_bell=0
+autowrap=1
+cursor_blink_mode=2
+scrollbar_pos=0
+limit_scrollback=0
+vspacing=8
+hide_menubar=1
+scroll_on_keystroke=1

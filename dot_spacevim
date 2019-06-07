@@ -1,0 +1,325 @@
+" vim: set ft=vim: syntax=vim
+" Use exclude option if you don't want the full Layer,
+" e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
+function! Layers()
+
+	Layer 'better-defaults', { 'exclude': [
+				\ 'kshenoy/vim-signature',
+				\ 'google/vim-searchindex',
+				\ 'mhinz/vim-startify',
+				\ ] }
+	Layer 'unite'
+	Layer 'airline'
+	Layer 'programming', { 'exclude': [
+				\ 'luochen1990/rainbow',
+				\ ] }
+	Layer 'editing'
+	Layer 'fzf'
+	Layer 'git'
+	Layer 'syntax-checking'
+	Layer 'deoplete', {'exclude': [
+				\ 'eagletmt/neco-ghc',
+				\ 'sebastianmarkow/deoplete-rust',
+				\ 'zchee/deoplete-go',
+				\ ]}
+	Layer 'c-c++'
+	Layer 'docker'
+	Layer 'html'
+	Layer 'javascript'
+	Layer 'markdown'
+	Layer 'python', {'exclude': [
+				\ 'python-mode/python-mode',
+				\ ]}
+
+endfunction
+
+function! UserInit()
+
+	Plug 'morhetz/gruvbox'
+	Plug 'chr4/nginx.vim'
+	Plug 'Firef0x/PKGBUILD.vim'
+	Plug 'alvan/vim-closetag'
+	Plug 'lepture/vim-jinja'
+	Plug 'aperezdc/vim-template'
+	Plug 'elzr/vim-json'
+	Plug 'andymass/vim-matchup'
+	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+	Plug 'idbrii/vim-remarkjs'
+	Plug 'idbrii/vim-gogo'
+	Plug 'edkolev/tmuxline.vim'
+	Plug 'tpope/vim-repeat'
+	Plug 'diepm/vim-rest-console'
+	Plug 'RRethy/vim-hexokinase'
+	Plug 'mbbill/undotree'
+
+endfunction
+
+" Override the existing configurations and add extras here.
+function! UserConfig()
+
+	set termguicolors
+	color gruvbox
+	set encoding=utf8
+	set shell=/bin/bash
+	set autochdir
+	set laststatus=2
+	"set timeoutlen=300
+	"set backspace=2
+	set showcmd
+	set wrap
+	set linebreak
+	set number
+	set relativenumber
+	set cursorline
+	set cursorcolumn
+	set tabstop=4
+	set shiftwidth=4
+	set softtabstop=4
+	set textwidth=0
+	set noexpandtab
+	set autoindent
+	set background=dark
+	set list
+	set listchars=tab:│\ ,trail:~,extends:>,precedes:<
+	set splitright
+	set splitbelow
+	set foldmethod=indent
+
+	" Persistent undo
+	set undofile
+	set undodir=~/.local/share/nvim/undodir
+
+	" Set default LICENSE
+	let g:license = 'BSD-3-Clause'
+	let g:email = 'pavle.portic@tilda.center'
+
+	" Set python path
+	let g:python_host_prog = '/usr/bin/python'
+
+	" Backspace and Enter as G and gg
+	nnoremap <CR> G
+	nnoremap <BS> gg
+	vnoremap <CR> G
+	vnoremap <BS> gg
+
+	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+	" Colemak-Vim Mappings
+	"
+	" The idea is to use HNEI as arrows – keeping the traditional Vim homerow style – and changing as
+	" little else as possible. This means JKL are free to use and NEI need new keys.
+	" - k/K is the new n/N ["next/prev search"]
+	" - l/L is the new i/I ["insert"].
+	" - m/M is the new e/E ["jump" to EOW].
+	" - j/J is the new m/M ["marks"]
+	" - H/I skip to the beginning and end of lines. Much more intuitive than ^/$.
+	" - l replaces i as the "inner" modifier [e.g. "dlw" becomes "dlw"].
+	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+	" HNEI arrows.
+	noremap <silent> n j
+	noremap <silent> e k
+	noremap <silent> i l
+
+	" Merge lines
+	noremap <silent> N J
+
+	" Last search.
+	noremap k n
+	noremap K N
+
+	" mark
+	noremap j m
+	noremap J M
+	" l/L insert
+	noremap l i
+	noremap L I
+	" EOW.
+	noremap m e
+	noremap M E
+
+	" End of line
+	noremap I $
+	noremap H ^
+
+	noremap <C-N> <C-E>
+	noremap <C-E> <C-P>
+
+	" Disable default space action
+	noremap <Space> <NOP>
+
+	" Autoindent code
+	nmap <F7> jzgg=G`z
+
+	" Buffer actions
+	nnoremap <silent> <Tab> :bn<CR>
+	nnoremap <silent> <S-Tab> :bp<CR>
+	nnoremap <silent> <leader>bd :bp \| bd #<cr>
+
+	" Unhighlight search results with \
+	noremap <silent> \ :let @/ = ""<CR>
+
+
+	if !exists('g:vim_better_default_window_key_mapping') ||
+				\ g:vim_better_default_window_key_mapping
+		nnoremap <Leader>wn <C-W>j
+		nnoremap <Leader>we <C-W>k
+		nnoremap <Leader>wh <C-W>h
+		nnoremap <Leader>wi <C-W>l
+		nnoremap <Leader>wH <C-W>5<
+		nnoremap <Leader>wI <C-W>5>
+		nnoremap <Leader>wN :resize +5<CR>
+		nnoremap <Leader>wE :resize -5<CR>
+	endif
+
+	" Easymotion colemak bindings
+	map  <Leader>nn <Plug>(easymotion-bd-f)
+	nmap <Leader>nn <Plug>(easymotion-overwin-f)
+
+	" s{char}{char} to move to {char}{char}
+	nmap <Leader>nN <Plug>(easymotion-overwin-f2)
+
+	" Jump to line
+	map <Leader>ne <Plug>(easymotion-bd-jk)
+	nmap <Leader>ne <Plug>(easymotion-overwin-line)
+
+	" Jump to word
+	map  <Leader>nw <Plug>(easymotion-bd-w)
+	nmap <Leader>nw <Plug>(easymotion-overwin-w)
+
+	" FZF mappings
+	noremap <C-P> :GFiles<CR>
+	noremap <leader>ff :Files<CR>
+	noremap <C-G> :Lines<CR>
+	noremap <C-Q> :Buffers<CR>
+	noremap <C-T> :Tags<CR>
+	noremap <leader>? :Maps<CR>
+
+	" Nerdcommenter maps
+	nmap <Leader>/ <Plug>NERDCommenterToggle
+	vmap <Leader>/ <Plug>NERDCommenterToggle
+
+	" Fugitive maps
+	nnoremap <silent> <Leader>gd :Gvdiff<CR>
+
+	" Undotree maps
+	nnoremap <F3> :UndotreeToggle<cr>
+
+	""""""""""""""""""""""
+	" Plugin configuration
+	""""""""""""""""""""""
+
+	" Airline settings
+	let g:airline_powerline_fonts = 1
+	let g:airline_theme='gruvbox'
+
+	" Tmuxline settings
+	let g:airline#extensions#tmuxline#enabled = 0
+
+	" Emmet settings
+	let g:user_emmet_mode='nv'
+	let g:user_emmet_leader_key='<Leader>e'
+
+	" Closetag config
+	let g:closetag_filenames = '*.html,*.xhtml,*.hbs,*.vue'
+
+	" Per filetype indentation settings
+	let g:jsx_ext_required = 1
+	augroup filetypeDefinitions
+		autocmd Filetype i3 setl noet ts=2 sts=2 sw=2
+		autocmd Filetype html,jinja.html,blade setl noet ts=2 sts=2 sw=2
+		autocmd Filetype javascript,js,vue,json,jsx setl noet ts=4 sts=4 sw=4
+		autocmd Filetype python setl noet ts=4 sw=4 sts=4 tw=0
+		autocmd Filetype c,cpp setl noet ts=4 sts=4 sw=4
+		autocmd Filetype rst setl autoindent& cindent& smartindent& indentexpr& noet ts=3 sts=3 sw=3
+		autocmd Filetype tex setl et ts=4 sts=4 sw=4
+	augroup END
+
+	augroup filetypedetect
+		autocmd BufNew,BufNewFile,BufRead *.network,*.netdev :setfiletype systemd
+	augroup END
+
+	" Don't insert title into new files
+	autocmd! spacevimNewFile BufNewFile *.py,*.cpp,*.c,*.sh,*.java,*.pl
+
+	" Format json file
+	command! FormatJSON %!python -m json.tool
+
+	" Format braces in C file
+	command! FormatBraces %s/\n\s*{/ {/g
+
+	command! W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
+	autocmd! spacevimStart
+
+	" Strip trailing whitespaces on save
+	" autocmd Filetype * autocmd BufWritePre <buffer> :StripWhitespace
+	" Remove trailing spaces
+	fun! <SID>StripTrailingWhitespaces()
+		let l = line('.')
+		let c = col('.')
+		%s/\s\+$//e
+		call cursor(l, c)
+	endfun
+	autocmd FileType * autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+	" Py-mode settings
+	" let g:pymode_virtualenv = 1
+	" let g:pymode_virtualenv_enabled = 1
+	" let g:pymode_doc_bind = 'E'
+	" nnoremap E <NOP>
+
+	" Jedi completion settings
+	let g:jedi#completions_enabled = 0
+	let g:jedi#documentation_command = 'E'
+
+	" Vue syntax highlight speedup
+	let g:vue_disable_pre_processors=1
+
+	" Ale settings
+	let g:airline#extensions#ale#enabled = 1
+	let g:ale_linters = {
+				\ 'c': ['gcc'],
+				\ 'cpp': ['gcc'],
+				\ 'vue': ['eslint'],
+				\ 'javascript': ['eslint'],
+				\ }
+	let g:ale_lint_on_insert_leave = 1
+	let g:ale_fix_on_save = 0
+
+	" fzf config
+	let g:fzf_colors = {
+				\ 'fg':      ['fg', 'GruvboxGray'],
+				\ 'bg':      ['bg', 'Normal'],
+				\ 'hl':      ['fg', 'GruvboxRed'],
+				\ 'fg+':     ['fg', 'GruvboxGreen'],
+				\ 'bg+':     ['bg', 'GruvboxBg1'],
+				\ 'hl+':     ['fg', 'GruvboxRed'],
+				\ 'info':    ['fg', 'GruvboxOrange'],
+				\ 'prompt':  ['fg', 'GruvboxBlue'],
+				\ 'header':  ['fg', 'GruvboxBlue'],
+				\ 'pointer': ['fg', 'Error'],
+				\ 'marker':  ['fg', 'Error'],
+				\ 'spinner': ['fg', 'Statement'],
+				\ }
+
+	" Configure vim-template directory
+	let g:templates_directory = ['~/.local/share/nvim/templates']
+
+	" Vim rest console settings
+	let g:vrc_curl_opts = {
+		\ '-s' : '',
+		\ '-i' : '',
+	\ }
+
+	" NERDCommenter configuration
+	let g:NERDCustomDelimiters = { 'vue': { 'left': '//' }, 'systemd': { 'left': '#' } }
+
+	" Polyglot configuration
+	let g:polyglot_disabled = ['systemd']
+
+	" Hexokinase configuration
+	let g:Hexokinase_ftAutoload = ['css', 'scss', 'sass', 'stylus']
+
+endfunction
+

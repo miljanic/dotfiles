@@ -1,0 +1,26 @@
+#!/bin/bash
+
+userresources=$HOME/.Xresources
+usermodmap=$HOME/.Xmodmap
+
+if [ -f "$userresources" ]; then
+    xrdb -merge "$userresources"
+fi
+
+if [ -f "$usermodmap" ]; then
+    xmodmap "$usermodmap"
+fi
+
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+xset fp rehash
+xset dpms 3600 3600 3600
+xset s 3600 3600
+xhost +localhost
+xhost +natrium
+xcape -e 'Control_L=Escape'
+xbindkeys
+feh --bg-fill /home/pavle/pictures/wallpapers/arboreal_serenity.jpg
+
+exec i3
+
