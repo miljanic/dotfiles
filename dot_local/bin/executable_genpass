@@ -7,18 +7,21 @@ function usage()
   local invalid_argument=$3
   local invalid_option=$4
 
-  local help="Usage: genpass -c COUNT [OPTION]
+  local help="Usage: genpass -c COUNT [OPTION] [SET]
 
 Generate random password from /dev/urandom using the character set chosen
 
 Option (pick one character set):"
-  local help_options="    \-a ,\--all\ \ Use all ASCII characters
-    \-s ,\--special\ \ Limited set of special characters that shouldn't cause problems
-    \-an ,\--alphanumeric\ \ a-z, A-Z, 0-9
-    \-al ,\--alpha\ \ a-z, A-Z
-    \-n ,\--numeric\ \ 0-9
-    \-h ,\--hex\ \ 0-9, a-z
-    \-c ,\--count \<length>\ Length of password to generate
+  local help_options="    \-a ,\--all\ all printable characters, not including space
+    \-lt ,\--limited\ all except special characters [A-Za-z0-9%+,-./:=@^_]
+    \-an ,\--alphanumeric\ letters and digits
+    \-al ,\--alpha\ letters
+    \-u ,\--upper\ upper case letters
+    \-l ,\--lower\ lower case letters
+    \-n ,\--numeric\ digits
+    \-h ,\--hex\ hexadecimal digits
+    \-c ,\--count <length>\ Length of password to generate
+    \[SET]\ \ Other character SET compatible with tr
 "
 
   if [ "$missing_required" != "" ]
@@ -53,22 +56,37 @@ key="$1"
 case $key in
   -a|--all)
     all="true"
+    characters="[:graph:]"
+    shift
+    ;;
+  -lt|--limited)
+    special="true"
     characters="A-Za-z0-9%+,-./:=@^_"
     shift
     ;;
   -an|--alphanumeric)
     alphanumeric="true"
-    characters="A-Za-z0-9"
+    characters="[:alnum:]"
     shift
     ;;
   -al|--alpha)
     alpha="true"
-    characters="A-Za-z"
+    characters="[:alpha:]"
+    shift
+    ;;
+  -u|--upper)
+    upper="true"
+    characters="[:upper:]"
+    shift
+    ;;
+  -l|--lower)
+    lower="true"
+    characters="[:lower:]"
     shift
     ;;
   -n|--numeric)
     numeric="true"
-    characters="0-9"
+    characters="[:digit:]"
     shift
     ;;
   -h|--hex)
@@ -101,5 +119,15 @@ done
 }
 
 init_args $@
+
+if [ -z $characters ]; then
+  if [ -z $POSITIONAL ]; then
+    echo "Missing at least one character set"
+    exit 2
+  else
+    characters=$POSITIONAL
+  fi
+fi
+
 < /dev/urandom tr -dc $characters | head -c $count
 
