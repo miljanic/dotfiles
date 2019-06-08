@@ -1,0 +1,105 @@
+#!/usr/bin/bash
+
+function usage()
+{
+  local just_help=$1
+  local missing_required=$2
+  local invalid_argument=$3
+  local invalid_option=$4
+
+  local help="Usage: genpass -c COUNT [OPTION]
+
+Generate random password from /dev/urandom using the character set chosen
+
+Option (pick one character set):"
+  local help_options="    \-a ,\--all\ \ Use all ASCII characters
+    \-s ,\--special\ \ Limited set of special characters that shouldn't cause problems
+    \-an ,\--alphanumeric\ \ a-z, A-Z, 0-9
+    \-al ,\--alpha\ \ a-z, A-Z
+    \-n ,\--numeric\ \ 0-9
+    \-h ,\--hex\ \ 0-9, a-z
+    \-c ,\--count \<length>\ Length of password to generate
+"
+
+  if [ "$missing_required" != "" ]
+  then
+    echo "Missing required argument: $missing_required"
+  fi
+
+  if [ "$invalid_option" != "" ] && [ "$invalid_value" = "" ]
+  then
+    echo "Invalid option: $invalid_option"
+  elif [ "$invalid_value" != "" ]
+  then
+    echo "Invalid value: $invalid_value for option: --$invalid_option"
+  fi
+
+  echo -e "
+"
+  echo "$help"
+  echo "$help_options" | column -t -s'\'
+  return
+}
+function init_args()
+{
+REQ_ARGS=("count" )
+
+# get command line arguments
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+  -a|--all)
+    all="true"
+    characters="A-Za-z0-9%+,-./:=@^_"
+    shift
+    ;;
+  -an|--alphanumeric)
+    alphanumeric="true"
+    characters="A-Za-z0-9"
+    shift
+    ;;
+  -al|--alpha)
+    alpha="true"
+    characters="A-Za-z"
+    shift
+    ;;
+  -n|--numeric)
+    numeric="true"
+    characters="0-9"
+    shift
+    ;;
+  -h|--hex)
+    hex="true"
+    characters="0-9a-f"
+    shift
+    ;;
+  -c|--count)
+    count="$2"
+    shift 2
+    ;;
+  *)
+    POSITIONAL+=("$1") # saves unknown option in array
+    shift
+    ;;
+esac
+done
+
+for i in "${REQ_ARGS[@]}"; do
+  # $i is the string of the variable name
+  # ${!i} is a parameter expression to get the value
+  # of the variable whose name is i.
+  req_var=${!i}
+  if [ "$req_var" = "" ]
+  then
+    usage "" "--$i"
+    exit
+  fi
+done
+}
+
+init_args $@
+< /dev/urandom tr -dc $characters | head -c $count
+
