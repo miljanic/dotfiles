@@ -52,7 +52,6 @@ function! UserInit()
 	Plug 'diepm/vim-rest-console'
 	Plug 'RRethy/vim-hexokinase'
 	Plug 'mbbill/undotree'
-	Plug 'm-kat/aws-vim'
 
 endfunction
 
