@@ -52,9 +52,12 @@ bindsym $mod+Return exec roxterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start rofi (a program launcher)
+# start rofi
 bindsym $mod+space exec "rofi -show drun"
 bindsym $mod+BackSpace exec "rofi -show drun"
+
+# rofi password manager
+bindsym $mod+k exec "rofi-pass"
 
 # change focus
 bindsym $mod+$left focus left
