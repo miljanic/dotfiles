@@ -1,0 +1,9 @@
+# vim: ft=zsh
+# Get nth line in a file
+
+if [ -z ${2+x} ]; then
+	sed -n ${1}p
+else
+	sed -n ${1}p ${2}
+fi
+
