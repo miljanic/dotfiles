@@ -17,10 +17,12 @@ xset fp rehash
 xset dpms 3600 3600 3600
 xset s 3600 3600
 xhost +localhost
-xhost +natrium
+xhost +calcium
+xhost +neon
 xcape -e 'Control_L=Escape'
 xbindkeys
 feh --bg-fill /home/pavle/pictures/wallpapers/arboreal_serenity.jpg
+dunst &
 
 exec i3
 

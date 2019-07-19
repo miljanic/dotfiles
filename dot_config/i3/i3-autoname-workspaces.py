@@ -84,6 +84,7 @@ WINDOW_ICONS = {
 	'riot': fa.icons['comments'],
 	'seahorse': fa.icons['lock'],
 	'spotify': fa.icons['spotify'],
+	'sqlectron': fa.icons['database'],
 	'sqlitebrowser': fa.icons['database'],
 	'steam': fa.icons['steam'],
 	'subl': fa.icons['file-alt'],
