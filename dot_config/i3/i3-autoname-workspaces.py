@@ -59,6 +59,7 @@ WINDOW_ICONS = {
 	'firefox-developer': fa.icons['firefox'],
 	'ghb': fa.icons['video'],
 	'gimp': fa.icons['file-image'],
+	'gimp-2.10': fa.icons['file-image'],
 	'google-chrome': fa.icons['chrome'],
 	'gparted': fa.icons['hdd'],
 	'gpicview': fa.icons['image'],
