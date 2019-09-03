@@ -45,6 +45,7 @@ import i3ipc
 WINDOW_ICONS = {
 	'blender': fa.icons['cube'],
 	'blueman-manager': fa.icons['bluetooth'],
+	'calibre-gui': fa.icons['book'],
 	'chromium': fa.icons['chrome'],
 	'cities.x64': fa.icons['city'],
 	'code': fa.icons['code'],
