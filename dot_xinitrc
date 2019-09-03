@@ -14,8 +14,8 @@ fi
 source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
 xset fp rehash
-xset dpms 3600 3600 3600
-xset s 3600 3600
+xset dpms 30000 30000 30000
+xset s 30000 30000
 xhost +localhost
 xhost +calcium
 xhost +neon
