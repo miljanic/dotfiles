@@ -100,6 +100,12 @@ alias sustop='systemctl --user stop'
 alias suenable='systemctl --user enable'
 alias sudisable='systemctl --user disable'
 
+# Pass aliases
+alias psh='pass show'
+alias psi='pass insert'
+alias pgp='pass git push'
+alias pgl='pass git pull'
+
 # Oh my zsh alias override
 alias gcom='gco master'
 alias yar='yay'
