@@ -85,7 +85,7 @@ WINDOW_ICONS = {
 	'pavucontrol': fa.icons['volume-up'],
 	'qbittorrent': fa.icons['download'],
 	'qtcreator': fa.icons['code'],
-	'riot': fa.icons['comments'],
+	'rambox': fa.icons['comments'],
 	'seahorse': fa.icons['lock'],
 	'spotify': fa.icons['spotify'],
 	'sqlectron': fa.icons['database'],
