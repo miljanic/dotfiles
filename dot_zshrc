@@ -79,6 +79,7 @@ alias diff='diff -y --suppress-common-lines'
 alias -g HASH='| sha256sum | base64 H -n1 | clip'
 alias cz=chezmoi
 alias dockre=docker
+alias unbound='cd ~/dev/docker/unbound; dcrestart; -'
 
 # Systemctl aliases
 alias sctl='sudo systemctl'
