@@ -228,7 +228,7 @@ function! UserConfig()
 	augroup filetypeDefinitions
 		autocmd Filetype i3 setl noet ts=2 sts=2 sw=2
 		autocmd Filetype html,jinja.html,blade setl noet ts=2 sts=2 sw=2
-		autocmd Filetype javascript,js,vue,json,jsx setl noet ts=4 sts=4 sw=4
+		autocmd Filetype javascript,js,vue,json,jsx setl et ts=2 sts=2 sw=2
 		autocmd Filetype python setl noet ts=4 sw=4 sts=4 tw=0
 		autocmd Filetype php setl et ts=4 sw=4 sts=4 tw=0
 		autocmd Filetype c,cpp setl noet ts=4 sts=4 sw=4
