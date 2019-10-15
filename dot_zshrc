@@ -108,7 +108,6 @@ alias pgp='pass git push'
 alias pgl='pass git pull'
 
 # Oh my zsh alias override
-alias gcom='gco master'
 alias yar='yay'
 alias -g du='du -sh'
 alias -g duf='du -sh * | sort -h'
