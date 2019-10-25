@@ -83,6 +83,7 @@ WINDOW_ICONS = {
 	'nm-connection-editor': fa.icons['wifi'],
 	'org-openstreetmap-josm-gui-mainapplication': fa.icons['map'],
 	'pavucontrol': fa.icons['volume-up'],
+	'picard': fa.icons['music'],
 	'qbittorrent': fa.icons['download'],
 	'qtcreator': fa.icons['code'],
 	'rambox': fa.icons['comments'],
