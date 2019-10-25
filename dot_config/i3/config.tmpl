@@ -238,8 +238,9 @@ bar {
 		memory \
 		-p engine.workspacewheel=False \
 		traffic.hide_down=True \
-		traffic.exclude="lo,virbr,docker,vboxnet,veth,br" \
-		nic.exclude="lo,virbr,docker,vboxnet,veth,br" \
+		traffic.exclude="lo,virbr,docker,vboxnet,veth,br-" \
+		nic.exclude="lo,virbr,docker,vboxnet,veth,br-" \
+		nic.states="^down" \
 		-t gruvbox-powerline
 	wheel_up_cmd nop
 	wheel_down_cmd nop
