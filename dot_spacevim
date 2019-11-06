@@ -50,8 +50,6 @@ function! UserInit()
 	Plug 'edkolev/tmuxline.vim'
 	Plug 'tpope/vim-repeat'
 	Plug 'diepm/vim-rest-console'
-	Plug 'RRethy/vim-hexokinase'
-	Plug 'mbbill/undotree'
 
 endfunction
 
