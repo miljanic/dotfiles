@@ -54,9 +54,12 @@ alias '.......'='../../../../../..'
 alias '........'='../../../../../../..'
 alias ls='ls --group-directories-first --color=always --time-style=long-iso'
 alias cl=clear
+alias q=exit
 alias cdl='cd ~/ && cl'
 alias rmr='rm -rIf'
+alias rmrf=rmr
 alias mkdir='mkdir -p'
+alias mdr=mkdir
 alias df='df -h'
 alias ran=ranger
 alias -g WC='| wc -l'
@@ -65,8 +68,8 @@ alias cal='cal -m'
 alias grep='grep -Hn --color=always'
 alias -g NO='>/dev/null 2>&1'
 alias -g clip='xclip -selection c'
-alias db='sudo duplicity-backup -c /etc/duplicity/duplicity-backup.conf'
-alias wakerouter='wol 18:a9:05:39:c4:4d'
+#alias db='sudo duplicity-backup -c /etc/duplicity/duplicity-backup.conf'
+#alias wakerouter='wol 18:a9:05:39:c4:4d'
 alias myip='curl icanhazip.com'
 alias -g vim='nvim'
 alias manage='python manage.py'
@@ -123,11 +126,11 @@ unalias -m 'rm'
 # Variable exports
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER='firefox'
+export BROWSER='chromium'
 export XDG_CONFIG_HOME="$HOME/.config"
 export MAKEFLAGS="-j $(nproc --all)"
 export GPG_TTY=$(tty)
-export ANDROID_HOME="$HOME/.android/sdk"
+#export ANDROID_HOME="$HOME/.android/sdk"
 export PATH="$HOME/.local/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$PATH"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export LC_ALL="en_DK.UTF-8"

@@ -17,11 +17,9 @@ xset fp rehash
 xset dpms 30000 30000 30000
 xset s 30000 30000
 xhost +localhost
-xhost +calcium
-xhost +neon
 xcape -e 'Control_L=Escape'
 xbindkeys
-feh --bg-fill /home/pavle/pictures/wallpapers/arboreal_serenity.jpg
+feh --bg-fill /home/pseudonick/.config/feh_wallpaper
 dunst &
 
 exec i3

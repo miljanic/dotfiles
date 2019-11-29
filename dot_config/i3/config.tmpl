@@ -26,10 +26,10 @@ set $color16	#d65d0e
 set $color17	#fe8019
 
 set $mod Mod4
-set $left h
-set $down n
-set $up e
-set $right i
+set $left Left
+set $down Down
+set $up Up
+set $right Right
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -54,7 +54,6 @@ bindsym $mod+Shift+q kill
 
 # start rofi
 bindsym $mod+space exec "rofi -show drun"
-bindsym $mod+BackSpace exec "rofi -show drun"
 
 # rofi password manager
 bindsym $mod+k exec "rofi-pass"
@@ -129,7 +128,7 @@ bindsym $mod+Shift+w move container to workspace 
 bindsym $mod+Shift+m move container to workspace 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Control+l exec "i3lock -e -i ~/pictures/wallpapers/blue_screen.png -t"
+bindsym $mod+Control+l exec "i3lockmore --image-fill ~/.config/lock_screen"
 
 mode "resize" {
 	bindsym h resize shrink width 10 px or 10 ppt
@@ -169,18 +168,16 @@ bindsym Print exec pyazo
 assign [class="(?i)firefox"] 
 assign [class="(?i)chromium"] 
 assign [class="Telegram"] 
-assign [class="(?i)riot"] 
-assign [class="Thunderbird"] 
+assign [class="slack"] 
 for_window [class="Lxappearance"] floating enable
 
 new_window pixel 2
 hide_edge_borders smart
 
+exec_always feh --bg-fill /home/pseudonick/.config/feh_wallpaper
 exec_always python ~/.config/i3/i3-autoname-workspaces.py &
 exec telegram-desktop >/dev/null 2>/dev/null &
-exec roxterm -e cmus >/dev/null 2>/dev/null &
-exec env GTK_THEME=Arc-Solid gtk-launch firefox >/dev/null 2>/dev/null &
-exec gtk-launch thunderbird >/dev/null 2>/dev/null &
+exec slack >/dev/null 2>/dev/null &
 
 set $mode_power (1) shutdown, (2) reboot, (3) exit i3, (4) reload i3
 mode "$mode_power" {
@@ -195,7 +192,7 @@ bindsym $mod+Shift+x mode "$mode_power"
 set $mode_kb_select (1) US, (2) Colemak, (3) Latin, (4) Cyrillic, (5) DE
 mode "$mode_kb_select" {
 	bindsym 1 exec --no-startup-id "setxkbmap -layout us", mode "default"
-	bindsym 2 exec --no-startup-id "setxkbmap -layout custom -variant colemak -option ctrl:swapcaps", mode "default"
+	bindsym 2 exec --no-startup-id "setxkbmap -layout us -variant colemak -option ctrl:swapcaps", mode "default"
 	bindsym 3 exec --no-startup-id "setxkbmap -layout rs -variant latin", mode "default"
 	bindsym 4 exec --no-startup-id "setxkbmap -layout rs", mode "default"
 	bindsym 5 exec --no-startup-id "setxkbmap -layout de", mode "default"
