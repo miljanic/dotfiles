@@ -1,0 +1,131 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+      "key": "ctrl+d",
+      "command": "editor.action.deleteLines",
+      "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+      "key": "ctrl+shift+k",
+      "command": "-editor.action.deleteLines",
+      "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+      "key": "ctrl+d",
+      "command": "editor.action.clipboardCutAction",
+      "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+      "key": "ctrl+x",
+      "command": "-editor.action.clipboardCutAction",
+      "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+      "key": "alt+enter",
+      "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+      "key": "ctrl+`",
+      "command": "-workbench.action.terminal.toggleTerminal"
+  },
+  {
+      "key": "shift+alt+enter",
+      "command": "workbench.action.terminal.new"
+  },
+  {
+      "key": "ctrl+shift+`",
+      "command": "-workbench.action.terminal.new"
+  },
+  {
+      "key": "ctrl+shift+n",
+      "command": "projectManager.listProjects"
+  },
+  {
+      "key": "shift+alt+p",
+      "command": "-projectManager.listProjects"
+  },
+  {
+      "key": "alt+`",
+      "command": "workbench.action.terminal.focus"
+  },
+  {
+      "key": "alt+`",
+      "command": "workbench.action.focusActiveEditorGroup",
+      "when": "terminalFocus"
+},
+{
+    "key": "ctrl+shift+/",
+    "command": "workbench.action.splitEditor"
+},
+{
+    "key": "ctrl+\\",
+    "command": "-workbench.action.splitEditor"
+},
+{
+    "key": "ctrl+k ctrl+shift+/",
+    "command": "workbench.action.splitEditorOrthogonal"
+},
+{
+    "key": "ctrl+k ctrl+\\",
+    "command": "-workbench.action.splitEditorOrthogonal"
+},
+{
+    "key": "alt+left",
+    "command": "workbench.action.navigateLeft"
+},
+{
+    "key": "alt+right",
+    "command": "workbench.action.navigateRight"
+},
+{
+    "key": "alt+up",
+    "command": "workbench.action.navigateUp"
+},
+{
+    "key": "alt+down",
+    "command": "workbench.action.navigateDown"
+},
+{
+    "key": "ctrl+shift+alt+down",
+    "command": "workbench.action.splitEditorDown"
+},
+{
+    "key": "ctrl+shift+alt+left",
+    "command": "workbench.action.splitEditorLeft"
+},
+{
+    "key": "ctrl+shift+alt+right",
+    "command": "workbench.action.splitEditorRight"
+},
+{
+    "key": "ctrl+shift+alt+up",
+    "command": "workbench.action.splitEditorUp"
+},
+{
+    "key": "ctrl+l",
+    "command": "editor.action.transformToUppercase"
+},
+{
+    "key": "ctrl+shift+l",
+    "command": "editor.action.transformToLowercase"
+},
+{
+    "key": "ctrl+shift+e",
+    "command": "-workbench.view.explorer"
+},
+{
+    "key": "ctrl+shift+e",
+    "command": "-workbench.action.quickOpenNavigatePreviousInFilePicker",
+    "when": "inFilesPicker && inQuickOpen"
+},
+{
+    "key": "ctrl+shift+e",
+    "command": "editor.action.selectHighlights",
+    "when": "editorFocus"
+},
+{
+    "key": "ctrl+shift+l",
+    "command": "-editor.action.selectHighlights",
+    "when": "editorFocus"
+}
+]

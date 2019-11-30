@@ -1,0 +1,132 @@
+// Place your settings in this file to overwrite the default settings
+{
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true,
+    "**/vendor/*/**": true
+  },
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "editor.fontFamily": "'Fira Code'",
+  "editor.fontLigatures": true,
+  "editor.lineNumbers": "on",
+  "files.exclude": {
+    "/.git": true,
+    "/.svn": true,
+    "/.hg": true,
+    "/.idea": true,
+    "/.vscode": true,
+    "/pycache": true
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.wordWrap": "on",
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+  "editor.acceptSuggestionOnEnter": "on",
+  "extensions.ignoreRecommendations": false,
+  "editor.renderControlCharacters": false,
+  "trailing-spaces.trimOnSave": true,
+  "workbench.editor.enablePreview": false,
+  "editor.autoIndent": true,
+  "editor.formatOnPaste": false,
+  "window.openFoldersInNewWindow": "off",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true,
+    "suppressWelcomeNotice": true
+  },
+  "explorer.openEditors.visible": 0,
+  "eslint.enable": true,
+  "eslint.options": {
+    "extensions": [
+      ".html",
+      ".js",
+      ".vue",
+      ".jsx"
+    ]
+  },
+  "eslint.validate": [
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    }
+  ],
+  "eslint.run": "onSave",
+  "eslint.alwaysShowStatus": true,
+  "eslint.autoFixOnSave": true,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnSave": false,
+  "editor.formatOnType": false,
+  "gitlens.keymap": "chorded",
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Gruvbox Dark (Soft)",
+  "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "vsicons.projectDetection.disableDetect": true,
+  "php.validate.executablePath": "/usr/bin/php",
+  // AWS Cloudformation custom tags
+  "yaml.customTags": [
+    "!And",
+    "!If",
+    "!Not",
+    "!Equals",
+    "!Or",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Join sequence"
+  ],
+  "yaml.format.enable": true,
+  "editor.lineHeight": 25,
+  "terminal.integrated.lineHeight": 0,
+  "editor.fontSize": 16,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editor.showTabs": true,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tslint.packageManager": "yarn",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "python.linting.lintOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
