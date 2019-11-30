@@ -90,7 +90,7 @@ function! UserConfig()
 
 	" Set default LICENSE
 	let g:license = 'BSD-3-Clause'
-	let g:email = 'pavle.portic@tilda.center'
+	let g:email = 'milosmilos96@gmail.com'
 
 	" Set python path
 	let g:python_host_prog = '/usr/bin/python'

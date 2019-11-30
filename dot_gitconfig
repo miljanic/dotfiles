@@ -1,7 +1,7 @@
 [user]
-	name = Pavle Portic
-	email = pavle.portic@tilda.center
-	signingkey = 6758ACE46AA2A849
+	name = Milos Miljanic
+	email = milosmilos96@gmail.com
+	signingkey = 2AF576658CAF5E4D
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [diff]
@@ -10,6 +10,4 @@
 	prompt = false
 [commit]
 	gpgsign = true
-[pull]
-	rebase = true
 
