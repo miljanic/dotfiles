@@ -2,7 +2,7 @@
 #
 
 # Set proper dpi
-xrdb -merge ~/.config/dotfiles/Xresources-1440
+xrdb -merge ~/.Xresources-1440
 i3 reload
 
 # Set 1440p HDMI screen as only active

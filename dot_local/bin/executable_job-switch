@@ -2,7 +2,7 @@
 #
 
 #Set proper dpi
-xrdb -merge ~/.config/dotfiles/Xresources-4k
+xrdb -merge ~/.Xresources-4k
 i3 reload
 
 # Set 4k and lap
