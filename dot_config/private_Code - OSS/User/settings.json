@@ -75,7 +75,7 @@
   "editor.formatOnSave": false,
   "editor.formatOnType": false,
   "gitlens.keymap": "chorded",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": 1,
   "workbench.colorTheme": "Gruvbox Dark (Soft)",
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,

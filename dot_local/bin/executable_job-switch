@@ -6,7 +6,7 @@ xrdb -merge ~/.Xresources-4k
 i3 reload
 
 # Set 4k and lap
-xrandr --output eDP-1 --scale 1.3 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off --output DP-1 --primary --mode 3840x2160 --pos 2496x0 --rotate normal --output HDMI-2 --off
+xrandr --output eDP-1 --scale 1.3 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-3 --primary --mode 3840x2160 --pos 2496x0 --rotate normal --output HDMI-2 --off
 
 
 # Set layout to use laptop keyboard
