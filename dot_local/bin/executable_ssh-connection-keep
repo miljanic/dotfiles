@@ -1,0 +1,5 @@
+while true
+do
+  echo 'Opening remote ssh session...'
+  ssh -R\*:8222:localhost:22 gavin
+done
