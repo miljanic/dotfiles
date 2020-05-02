@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+
+# Set proper dpi
+xrdb -merge ~/.config/xresources/.Xresources-lap
+i3 reload
+
+# Set 1440p HDMI screen as only active
+xrandr --output DP-3 --mode 1920x1080 --pos 0x0
+
+# Set layout to use laptop keyboard
+kb-lap
+

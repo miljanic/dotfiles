@@ -169,7 +169,6 @@ assign [class="(?i)firefox"] 
 assign [class="(?i)chromium"] 
 assign [class="Telegram"] 
 assign [class="slack"] 
-assign [class="joplin-desktop"] 10
 for_window [class="Lxappearance"] floating enable
 
 new_window pixel 2
@@ -181,7 +180,7 @@ exec_always python ~/.config/i3/i3-autoname-workspaces.py &
 exec telegram-desktop >/dev/null 2>/dev/null &
 exec slack >/dev/null 2>/dev/null &
 exec chromium >/dev/null 2>/dev/null &
-exec joplin-desktop >/dev/null 2>/dev/null &
+exec joplin >/dev/null 2>/dev/null &
 exec thunderbird >/dev/null 2>/dev/null &
 exec nm-applet >/dev/null 2>/dev/null &
 exec nextcloud &
@@ -211,7 +210,7 @@ bar {
 	position top
 	tray_output none
 	status_command ~/.local/share/bumblebee-status/bumblebee-status -m \
-		cmus {{ .i3.bumblebee.modules }} \
+		cmus battery dunst brightness xrandr \
 		sensors \
 		layout \
 		pasource \

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userresources=$HOME/.Xresources
+userresources=$HOME/.config/xresources/.Xresources
 usermodmap=$HOME/.Xmodmap
 
 if [ -f "$userresources" ]; then
@@ -20,7 +20,7 @@ xset -b
 xhost +localhost
 xcape -e 'Control_L=Escape'
 xbindkeys
-feh --bg-fill /home/pseudonick/.config/feh_wallpaper
+feh --bg-fill $HOME/.config/feh_wallpaper
 dunst &
 
 exec i3
