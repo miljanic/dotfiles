@@ -20,7 +20,6 @@ xset -b
 xhost +localhost
 xcape -e 'Control_L=Escape'
 xbindkeys
-feh --bg-fill $HOME/.config/feh_wallpaper
 dunst &
 
 exec i3
