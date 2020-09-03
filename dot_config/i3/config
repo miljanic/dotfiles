@@ -110,7 +110,7 @@ bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
 bindsym $mod+p workspace 
 bindsym $mod+w workspace 
-bindsym $mod+Shift+a move container to workspace 
+bindsym $mod+a workspace 
 bindsym $mod+m workspace 
 
 # move focused container to workspace
@@ -125,6 +125,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 bindsym $mod+Shift+p move container to workspace 
+bindsym $mod+Shift+a move container to workspace 
 bindsym $mod+Shift+w move container to workspace 
 bindsym $mod+Shift+m move container to workspace 
 bindsym $mod+Shift+c reload
