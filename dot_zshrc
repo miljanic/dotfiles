@@ -53,19 +53,20 @@ alias '......'='../../../../..'
 alias '.......'='../../../../../..'
 alias '........'='../../../../../../..'
 alias ls='ls --group-directories-first --color=always --time-style=long-iso'
-alias cl=clear
-alias q=exit
-alias cdl='cd ~/ && cl'
-alias rmr='rm -rIf'
-alias rmrf=rmr
-alias mkdir='mkdir -p'
-alias mdr=mkdir
-alias df='df -h'
-alias ran=ranger
+alias -g cl=clear
+alias -g q=exit
+alias -g cdl='cd ~/ && cl'
+alias -g rmr='rm -rIf'
+alias -g rmrf=rmr
+alias -g mkdir='mkdir -p'
+alias -g mdr=mkdir
+alias -g df='df -h'
+alias -g ran=ranger
+alias -g open=xdg-open
 alias -g WC='| wc -l'
-alias rcp='rsync -rPv'
+alias -g rcp='rsync -rPv'
 alias cal='cal -m'
-alias grep='grep -Hn --color=always'
+alias -g grep='grep -Hn --color=always'
 alias -g NO='>/dev/null 2>&1'
 alias -g clip='xclip -selection c'
 #alias db='sudo duplicity-backup -c /etc/duplicity/duplicity-backup.conf'
