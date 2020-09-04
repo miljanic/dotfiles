@@ -238,9 +238,7 @@ bar {
 		cmus \
 		spotify \
 		battery \
-		brightness \
 		dunst \
-		sensors \
 		layout \
 		pasource \
 		pasink \
@@ -267,6 +265,7 @@ bar {
 		traffic \
 		nic \
 		cpu \
+		sensors \
 		memory \
 		-p engine.workspacewheel=False \
 		traffic.hide_down=True \
