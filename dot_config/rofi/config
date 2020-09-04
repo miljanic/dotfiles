@@ -1,4 +1,8 @@
 ! vim: set ft=xdefaults:
+
+rofi.theme: ~/.config/rofi/gruvbox.rasi
+
+
 ! General settings
 rofi.levenshtein-sort: false
 rofi.matching: fuzzy
@@ -21,3 +25,7 @@ rofi.terminal: terminator
 rofi.ssh-command: {terminal} -x "{ssh-client} {host}"
 rofi.run-command: {cmd}
 rofi.run-shell-command: {terminal} -c "{cmd}"
+
+
+rofi.lines: 10
+rofi.case-sensitive: false
