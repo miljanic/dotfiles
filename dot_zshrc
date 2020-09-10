@@ -84,6 +84,7 @@ alias -g HASH='| sha256sum | base64 H -n1 | clip'
 alias cz=chezmoi
 alias dockre=docker
 alias unbound='cd ~/dev/docker/unbound; dcrestart; -'
+alias tf='terraform'
 
 # Systemctl aliases
 alias sctl='sudo systemctl'
@@ -94,7 +95,7 @@ alias sreload='sudo systemctl reload'
 alias sstop='sudo systemctl stop'
 alias senable='sudo systemctl enable'
 alias sdisable='sudo systemctl disable'
-alias hib='sudo systemctl suspend'
+alias hib='sudo systemctl suspend && q'
 
 alias suctl='systemctl --user'
 alias sustatus='systemctl --user status'

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-userresources=$HOME/.config/xresources/.Xresources
+userresources=$HOME/.config/xresources/.Xresources-1440
 usermodmap=$HOME/.Xmodmap
 
 if [ -f "$userresources" ]; then

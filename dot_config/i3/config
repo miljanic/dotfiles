@@ -165,7 +165,7 @@ bindsym XF86AudioNext exec "cmus-remote -n"
 bindsym XF86AudioPrev exec "cmus-remote -r"
 
 # Take screenshot
-bindsym Print exec ~/.local/bin/pyazo
+bindsym Print exec pyazo
 
 # Bind workspaces to specific outputs
 workspace 8 output DP-4
@@ -204,11 +204,14 @@ hide_edge_borders smart
 exec_always feh --bg-fill /home/pseudonick/.config/feh_wallpaper
 exec_always python ~/.config/i3/i3-autoname-workspaces.py &
 exec telegram-desktop >/dev/null 2>/dev/null &
-exec discord >/dev/null 2>/dev/null &
+#exec discord >/dev/null 2>/dev/null &
 exec slack >/dev/null 2>/dev/null &
-exec chromium >/dev/null 2>/dev/null &
+exec hey-mail >/dev/null 2>/dev/null &
+exec firefox-developer-edition >/dev/null 2>/dev/null &
 exec pulseaudio >/dev/null 2>/dev/null &
+exec spotify >/dev/null 2>/dev/null &
 exec nm-applet >/dev/null 2>/dev/null &
+exec blueman-manager >/dev/null 2>/dev/null &
 exec nextcloud &
 
 set $mode_power (1) shutdown, (2) reboot, (3) exit i3, (4) reload i3
