@@ -45,6 +45,10 @@ fpath=(~/.config/zsh/completions ~/.config/zsh/functions $fpath)
 autoload -Uz compinit && compinit
 autoload -Uz ~/.config/zsh/functions/*
 
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi
+
+
 # Aliases
 alias '...'='../..'
 alias '....'='../../..'
