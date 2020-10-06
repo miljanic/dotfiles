@@ -104,4 +104,8 @@
     background-color: @backgroundcoloralternate;
 }
 
+#element-icon {
+    size: 2.5ch;
+}
+
 /* vim: set ft=css : */

@@ -9,7 +9,7 @@
   "files.associations": {
     "*.js": "javascript"
   },
-  "editor.fontFamily": "'Fira Code'",
+  "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
   "editor.lineNumbers": "on",
   "files.exclude": {

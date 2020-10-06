@@ -12,6 +12,7 @@ unsetopt beep nomatch
 bindkey -v
 
 source ~/.config/zsh/antigen.zsh
+source .aliases
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -49,90 +50,13 @@ autoload -Uz ~/.config/zsh/functions/*
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi
 
 
-# Aliases
-alias '...'='../..'
-alias '....'='../../..'
-alias '.....'='../../../..'
-alias '......'='../../../../..'
-alias '.......'='../../../../../..'
-alias '........'='../../../../../../..'
-alias ls='ls --group-directories-first --color=always --time-style=long-iso'
-alias -g cl=clear
-alias -g q=exit
-alias -g cdl='cd ~/ && cl'
-alias -g rmr='rm -rIf'
-alias -g rmrf=rmr
-alias -g mkdir='mkdir -p'
-alias -g mdr=mkdir
-alias -g df='df -h'
-alias -g ran=ranger
-alias -g open=xdg-open
-alias -g WC='| wc -l'
-alias -g rcp='rsync -rPv'
-alias cal='cal -m'
-alias -g grep='grep -Hn --color=always'
-alias -g NO='>/dev/null 2>&1'
-alias -g clip='xclip -selection c'
-#alias db='sudo duplicity-backup -c /etc/duplicity/duplicity-backup.conf'
-#alias wakerouter='wol 18:a9:05:39:c4:4d'
-alias myip='curl icanhazip.com'
-alias -g vim='nvim'
-alias manage='python manage.py'
-alias zpool='sudo zpool'
-alias 'zpool import'='zpool import -d /dev/disk/by-id'
-alias zfs='sudo zfs'
-alias fdisk='sudo fdisk'
-alias cfn='cfn-lint'
-alias diff='diff -y --suppress-common-lines'
-alias -g HASH='| sha256sum | base64 H -n1 | clip'
-alias cz=chezmoi
-alias dockre=docker
-alias unbound='cd ~/dev/docker/unbound; dcrestart; -'
-alias tf='terraform'
-
-# Systemctl aliases
-alias sctl='sudo systemctl'
-alias sstatus='sudo systemctl status'
-alias sstart='sudo systemctl start'
-alias srestart='sudo systemctl restart'
-alias sreload='sudo systemctl reload'
-alias sstop='sudo systemctl stop'
-alias senable='sudo systemctl enable'
-alias sdisable='sudo systemctl disable'
-alias hib='sudo systemctl suspend && q'
-
-alias suctl='systemctl --user'
-alias sustatus='systemctl --user status'
-alias sustart='systemctl --user start'
-alias surestart='systemctl --user restart'
-alias sureload='systemctl --user reload'
-alias sustop='systemctl --user stop'
-alias suenable='systemctl --user enable'
-alias sudisable='systemctl --user disable'
-
-# Pass aliases
-alias psh='pass show'
-alias psi='pass insert'
-alias pgp='pass git push'
-alias pgl='pass git pull'
-
-# Oh my zsh alias override
-alias yar='yay'
-alias -g du='du -sh'
-alias -g duf='du -sh * | sort -h'
-alias -g dufa='du -sh * .* | sort -h'
-alias la='ls -a'
-alias ll='ls -lah'
-unalias -m 'fd'
-unalias -m 'ff'
-unalias -m '_'
-unalias -m 'please'
-unalias -m 'rm'
 
 # Variable exports
+export DEFAULT_USER='miljanic'
 export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER='chromium'
+export PASSWORD_STORE_X_SELECTION=primary
 export XDG_CONFIG_HOME="$HOME/.config"
 export MAKEFLAGS="-j $(nproc --all)"
 export GPG_TTY=$(tty)

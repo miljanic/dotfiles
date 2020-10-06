@@ -1,5 +1,5 @@
 [roxterm profile]
-font=Fira Code Medium 11
+font=JetBrains Mono 14
 always_show_tabs=0
 colour_scheme=Default
 bell_highlights_tab=0
@@ -8,6 +8,7 @@ autowrap=1
 cursor_blink_mode=2
 scrollbar_pos=0
 limit_scrollback=0
-vspacing=8
+vspacing=14
 hide_menubar=1
 scroll_on_keystroke=1
+bold_is_bright=0

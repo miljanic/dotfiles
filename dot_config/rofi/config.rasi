@@ -1,0 +1,19 @@
+configuration {
+	modi: "drun,ssh";
+	lines: 10;
+	font: "Pragmata Pro 13";
+	bw: 0;
+	location: 0;
+	show-icons: true;
+	terminal: "terminator";
+	ssh-command: "{terminal} -x "{ssh-client} {host}"";
+	run-command: "{cmd}";
+	run-shell-command: "{terminal} -c "{cmd}"";
+	case-sensitive: false;
+	matching: "fuzzy";
+	separator-style: "none";
+	hide-scrollbar: true;
+	theme: "~/.config/rofi/gruvbox.rasi";
+	color-normal: "#1d2021,#665c54,#1d2021,#665c54,#1d2021";
+	color-window: "#1d2021,#665c54";
+}
