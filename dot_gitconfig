@@ -9,5 +9,5 @@
 [difftool]
 	prompt = false
 [commit]
-	gpgsign = true
+	gpgsign = false
 

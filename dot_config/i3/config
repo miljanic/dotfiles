@@ -54,10 +54,7 @@ bindsym $mod+Return exec roxterm
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+space exec "rofi"
-
-# start passmenu (in rofi)
-bindsym $mod+z exec "passmenu"
+bindsym $mod+space exec "rofi -show drun"
 
 # rofi password manager
 bindsym $mod+k exec "rofi-pass"

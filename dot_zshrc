@@ -12,7 +12,7 @@ unsetopt beep nomatch
 bindkey -v
 
 source ~/.config/zsh/antigen.zsh
-source .aliases
+source ~/.aliases
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh

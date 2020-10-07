@@ -5,7 +5,7 @@ configuration {
 	bw: 0;
 	location: 0;
 	show-icons: true;
-	terminal: "terminator";
+	terminal: "roxterm";
 	ssh-command: "{terminal} -x "{ssh-client} {host}"";
 	run-command: "{cmd}";
 	run-shell-command: "{terminal} -c "{cmd}"";
