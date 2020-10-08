@@ -40,6 +40,7 @@ function! UserInit()
 	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 	Plug 'TheEdgeOfRage/vim-pythonsense', { 'for': 'python' }
 	Plug 'hashivim/vim-terraform'
+	Plug 'preservim/nerdtree'
 
 endfunction
 
@@ -174,11 +175,14 @@ function! UserConfig()
 	nnoremap <silent> <Leader>gd :Gvdiff<CR>
 
 	" Undotree maps
-	nnoremap <F3> :UndotreeToggle<cr>
+	map <Leader>tt :NERDTreeToggle<CR>
 
 	""""""""""""""""""""""
 	" Plugin configuration
 	""""""""""""""""""""""
+
+  " NERDTree configuration
+	let g:NERDTreeWinPos = "right"
 
 	" Airline settings
 	let g:airline_powerline_fonts = 1
