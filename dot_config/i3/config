@@ -208,7 +208,8 @@ exec telegram-desktop >/dev/null 2>/dev/null &
 #exec discord >/dev/null 2>/dev/null &
 exec slack >/dev/null 2>/dev/null &
 exec hey-mail >/dev/null 2>/dev/null &
-exec firefox-developer-edition >/dev/null 2>/dev/null &
+exec google-chrome-stable >/dev/null 2>/dev/null &
+# exec firefox-developer-edition >/dev/null 2>/dev/null &
 exec pulseaudio >/dev/null 2>/dev/null &
 exec spotify >/dev/null 2>/dev/null &
 exec nm-applet >/dev/null 2>/dev/null &
@@ -267,7 +268,6 @@ bar {
 bar {
 	position bottom
 	status_command /usr/bin/bumblebee-status -m \
-		traffic \
 		nic \
 		cpu \
 		sensors \
