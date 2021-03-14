@@ -269,12 +269,15 @@ bar {
 	position bottom
 	status_command /usr/bin/bumblebee-status -m \
 		nic \
-		cpu \
+		traffic \
+		cpu2 \
 		sensors \
 		memory \
 		-p engine.workspacewheel=False \
 		traffic.hide_down=True \
-		traffic.exclude="lo,virbr,docker,vboxnet,veth,br-" \
+		traffic.exclude="lo,virbr,docker,vboxnet,veth,br-,cni,flannel" \
+		cpu2.layout="cpu2.coresload" \
+		cpu2.colored=1 \
 		nic.exclude="lo,virbr,docker,vboxnet,veth,br-" \
 		nic.states="^down" \
 		-t gruvbox-powerline

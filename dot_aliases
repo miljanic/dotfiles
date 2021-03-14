@@ -78,3 +78,6 @@ unalias -m 'ff'
 unalias -m '_'
 unalias -m 'please'
 unalias -m 'rm'
+
+
+alias db='AWS_PROFILE=minio-duplicity duplicity-backup -c /home/miljanic/.config/duplicity/duplicity-backup.conf'
