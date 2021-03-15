@@ -2,45 +2,47 @@
 " Use exclude option if you don't want the full Layer,
 " e.g., Layer 'better-defaults', { 'exclude': 'itchyny/vim-cursorword' }
 function! Layers()
+	let g:spacevim_lsp_engine = 'coc'
 
+	Layer 'airline'
 	Layer 'better-defaults', {'exclude': [
 				\ 'kshenoy/vim-signature',
 				\ 'google/vim-searchindex',
 				\ 'mhinz/vim-startify',
 				\ ] }
-	Layer 'unite'
-	Layer 'airline'
-	Layer 'programming', {'exclude': ['luochen1990/rainbow']}
+	" Layer 'deoplete', {'exclude': [
+	"       \ 'eagletmt/neco-ghc',
+	"       \ 'sebastianmarkow/deoplete-rust',
+	"       \ 'zchee/deoplete-go',
+	"       \ ]}
+	Layer 'docker'
 	Layer 'editing'
 	Layer 'fzf'
 	Layer 'git'
-	Layer 'syntax-checking'
-	Layer 'deoplete', {'exclude': [
-				\ 'eagletmt/neco-ghc',
-				\ 'sebastianmarkow/deoplete-rust',
-				\ 'zchee/deoplete-go',
-				\ ]}
-	Layer 'c-c++'
-	Layer 'docker'
+	Layer 'lsp'
 	Layer 'markdown'
+	Layer 'programming', {'exclude': ['luochen1990/rainbow', 'jiangmiao/auto-pairs']}
+	Layer 'unite'
+	Layer 'syntax-checking'
 
 endfunction
 
 function! UserInit()
 
-	Plug 'morhetz/gruvbox'
-	Plug 'chr4/nginx.vim'
-	Plug 'Firef0x/PKGBUILD.vim'
-	Plug 'alvan/vim-closetag'
-	Plug 'aperezdc/vim-template'
 	Plug 'andymass/vim-matchup'
 	Plug 'tpope/vim-repeat'
+	Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+	" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+	" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+	Plug 'chr4/nginx.vim'
+	Plug 'Firef0x/PKGBUILD.vim'
 	Plug 'elzr/vim-json', { 'for': 'json' }
-	Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-	Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-	Plug 'TheEdgeOfRage/vim-pythonsense', { 'for': 'python' }
+	Plug 'jeetsukumaran/vim-pythonsense', { 'for': 'python' }
+	Plug 'elixir-editors/vim-elixir'
 	Plug 'hashivim/vim-terraform'
+	Plug 'morhetz/gruvbox'
 	Plug 'preservim/nerdtree'
+	Plug 'mbbill/undotree'
 
 endfunction
 
@@ -81,64 +83,16 @@ function! UserConfig()
 
 	" Set default LICENSE
 	let g:license = 'BSD 3-Clause'
-	let g:email = 'miljanic.m@protonmail.com'
+	let g:email = 'pavle.portic@tilda.center'
 
 	" Set python path
 	let g:python_host_prog = '/usr/bin/python'
-
-	" Backspace and Enter as G and gg
-	nnoremap <CR> G
-	nnoremap <BS> gg
-	vnoremap <CR> G
-	vnoremap <BS> gg
-
-	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-	" Colemak-Vim Mappings
-	"
-	" The idea is to use HNEI as arrows – keeping the traditional Vim homerow style – and changing as
-	" little else as possible. This means JKL are free to use and NEI need new keys.
-	" - k/K is the new n/N ["next/prev search"]
-	" - l/L is the new i/I ["insert"].
-	" - m/M is the new e/E ["jump" to EOW].
-	" - j/J is the new m/M ["marks"]
-	" - H/I skip to the beginning and end of lines. Much more intuitive than ^/$.
-	" - l replaces i as the "inner" modifier [e.g. "dlw" becomes "dlw"].
-	""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-	" HNEI arrows.
-	" noremap <silent> n j
-	" noremap <silent> e k
-	" noremap <silent> i l
-
-	" Merge lines
-	" noremap <silent> N J
-
-	" Last search.
-	" noremap k n
-	" noremap K N
-
-	" mark
-	" noremap j m
-	" noremap J M
-	" l/L insert
-	" noremap l i
-	" noremap L I
-	" EOW.
-	" noremap m e
-	" noremap M E
-
-	" End of line
-	" noremap I $
-	" noremap H ^
-
-	" noremap <C-N> <C-E>
-	" noremap <C-E> <C-P>
 
 	" Disable default space action
 	noremap <Space> <NOP>
 
 	" Autoindent code
-	nmap <F7> jzgg=G`z
+	nmap <F7> mzgg=G`z
 
 	" Buffer actions
 	nnoremap <silent> <Tab> :bn<CR>
@@ -149,14 +103,14 @@ function! UserConfig()
 	noremap <silent> \ :let @/ = ""<CR>
 
 	if !exists('g:vim_better_default_window_key_mapping') || g:vim_better_default_window_key_mapping
-		nnoremap <Leader>wn <C-W>j
-		nnoremap <Leader>we <C-W>k
-		nnoremap <Leader>wh <C-W>h
-		nnoremap <Leader>wi <C-W>l
-		nnoremap <Leader>wH <C-W>5<
-		nnoremap <Leader>wI <C-W>5>
-		nnoremap <Leader>wN :resize +5<CR>
-		nnoremap <Leader>wE :resize -5<CR>
+		nnoremap <Leader>w<Down> <C-W>j
+		nnoremap <Leader>w<Up> <C-W>k
+		nnoremap <Leader>w<Left> <C-W>h
+		nnoremap <Leader>w<Right> <C-W>l
+		nnoremap <Leader>w<S-Left> <C-W>5<
+		nnoremap <Leader>w<S-Right> <C-W>5>
+		" nnoremap <Leader>w<S-Up> :resize +5<CR>
+		" nnoremap <Leader>w<S-Down> :resize -5<CR>
 	endif
 
 	" FZF mappings
@@ -174,33 +128,40 @@ function! UserConfig()
 	" Fugitive maps
 	nnoremap <silent> <Leader>gd :Gvdiff<CR>
 
-	" Undotree maps
+	" NERDTree maps
 	map <Leader>tt :NERDTreeToggle<CR>
+
+	" Undotree maps
+	nnoremap <F3> :UndotreeToggle<cr>
 
 	""""""""""""""""""""""
 	" Plugin configuration
 	""""""""""""""""""""""
 
-  " NERDTree configuration
-	let g:NERDTreeWinPos = "right"
-
 	" Airline settings
 	let g:airline_powerline_fonts = 1
 	let g:airline_theme='gruvbox'
+	let g:airline#extensions#ale#enabled = 1
+
+	" NERDTree settings
+	let g:NERDTreeWinPos = "right"
+
+	" Signify settings
+	let g:signify_sign_delete_first_line = '-'
 
 	" Emmet settings
 	let g:user_emmet_mode='nv'
 	let g:user_emmet_leader_key='<Leader>e'
 
-	" Closetag config
-	let g:closetag_filenames = '*.html,*.xhtml,*.hbs,*.vue'
+	" LSP configuration
+	let g:spacevim_lsp_engine = 'coc'
 
 	" Per filetype indentation settings
 	let g:jsx_ext_required = 1
 	augroup filetypeDefinitions
 		autocmd Filetype i3 setl noet ts=2 sts=2 sw=2
 		autocmd Filetype html,jinja.html,blade setl noet ts=2 sts=2 sw=2
-		autocmd Filetype javascript,js,vue,jsx setl et ts=2 sts=2 sw=2
+		autocmd Filetype javascript,js,vue,jsx setl et ts=4 sts=4 sw=4
 		autocmd Filetype json setl et ts=4 sts=4 sw=4
 		autocmd Filetype python setl et ts=4 sw=4 sts=4 tw=0
 		autocmd Filetype php setl et ts=4 sw=4 sts=4 tw=0
@@ -214,13 +175,15 @@ function! UserConfig()
 
 	augroup filetypedetect
 		autocmd BufNew,BufNewFile,BufRead *.network,*.netdev :setfiletype systemd
+		autocmd BufNew,BufNewFile,BufRead *.py :set foldlevel=1
 	augroup END
 
 	" Don't insert title into new files
 	autocmd! spacevimNewFile BufNewFile *.py,*.cpp,*.c,*.sh,*.java,*.pl
 
-	" Format json file
+	" Format files
 	command! FormatJSON %!python -m json.tool
+	command! FormatPython %!yapf
 
 	" Format braces in C file
 	command! FormatBraces %s/\n\s*{/ {/g
@@ -245,15 +208,16 @@ function! UserConfig()
 	" Vue syntax highlight speedup
 	let g:vue_disable_pre_processors=1
 
+	" JSON disable quote conceal
+	let g:vim_json_syntax_conceal = 0
+
 	" Ale settings
-	let g:airline#extensions#ale#enabled = 1
 	let g:ale_linters = {
-				\ 'c': ['gcc'],
-				\ 'cpp': ['gcc'],
-				\ 'vue': ['eslint'],
-				\ 'javascript': ['eslint'],
-				\ 'cloudformation': ['cloudformation'],
-				\ }
+		\ 'c': ['gcc'],
+		\ 'cpp': ['gcc'],
+		\ 'javascript': ['eslint'],
+		\ 'python': ['flake8'],
+		\ }
 	let g:ale_lint_on_insert_leave = 1
 	let g:ale_fix_on_save = 1
 
@@ -284,4 +248,3 @@ function! UserConfig()
 	let g:polyglot_disabled = ['systemd']
 
 endfunction
-
