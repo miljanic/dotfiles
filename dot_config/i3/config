@@ -40,7 +40,7 @@ font pango:JetBrainsMono Medium, 12
 #class						background		border			text			split
 client.focused				$color8			$color8			$foreground		$color7
 client.focused_inactive		$background		$background		$color7			$color0
-client.unfocused			$color0			$background		$color8			$color0
+client.unfocused			$color0			$color0		$color8			$color0
 client.urgent				$color1			$color1			$foreground		$color1
 client.background			$background
 
