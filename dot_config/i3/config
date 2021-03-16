@@ -178,11 +178,10 @@ workspace 10 output DP-3
 assign [class="Postman"] 4
 assign [class="blueman-manager"] 10
 assign [class="(?i)blueman-manager(?i)"] 10
-for_window [class="Hey"] move container to workspace 10
-assign [class="hey-mail"] 10
-assign [class="Hey"] 10
+for_window [class="HEY"] move container to workspace 10
 assign [class="(?i)firefox"] 
 assign [class="(?i)chromium"] 
+assign [class="(?i)Chrome"] 
 assign [class="Telegram"] 
 assign [class="Discord"] 
 assign [class="discord"] 
