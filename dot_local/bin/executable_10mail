@@ -1,0 +1,26 @@
+#!/bin/bash
+
+MAIL=$1
+if [ -z $MAIL ]; then MAIL="tmp-$(genpass -al -c 10)"; else MAIL="$MAIL"; fi
+
+API_KEY=$(cat ${XDG_CONFIG_HOME}/mailcow-api.json | jq -r '.key')
+API_DOMAIN=$(cat ${XDG_CONFIG_HOME}/mailcow-api.json | jq -r '.api_domain')
+MAIL_DOMAIN=$(cat ${XDG_CONFIG_HOME}/mailcow-api.json | jq -r '.mail_domain')
+
+http POST $API_DOMAIN/api/v1/add/mailbox \
+	local_part=$MAIL \
+	domain="$MAIL_DOMAIN" \
+	name="Temporari Harari" \
+	quota="16" \
+	password="arstneio" \
+	password2="arstneio" \
+	active="1" \
+	force_pw_update="0" \
+	tls_enforce_in="0" \
+	tls_enforce_out="1" \
+	"X-API-Key:$API_KEY" \
+	-b \
+	| jq -r '.[0].msg[1]' \
+	| xclip -selection c
+
+notify-send "Temp mail is in clipboard."
