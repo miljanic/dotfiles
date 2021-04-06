@@ -244,6 +244,7 @@ bar {
 		battery \
 		dunst \
 		layout \
+		brightness \
 		pasource \
 		pasink \
 		date \
