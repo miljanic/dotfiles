@@ -131,7 +131,12 @@ bindsym $mod+Shift+w move container to workspace 
 bindsym $mod+Shift+m move container to workspace 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Control+l exec ~/.local/bin/lock
+
+# Screen locking
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lockmore --image-fill ~/.config/lock_screen --image-maximize ~/.config/lock_screen -t --nofork
+bindsym $mod+Control+l exec loginctl lock-session
 
 mode "resize" {
 	bindsym h resize shrink width 10 px or 10 ppt
@@ -207,7 +212,7 @@ exec telegram-desktop >/dev/null 2>/dev/null &
 #exec discord >/dev/null 2>/dev/null &
 exec slack >/dev/null 2>/dev/null &
 exec hey-mail >/dev/null 2>/dev/null &
-exec google-chrome-stable >/dev/null 2>/dev/null &
+#exec google-chrome-stable >/dev/null 2>/dev/null &
 # exec firefox-developer-edition >/dev/null 2>/dev/null &
 exec pulseaudio >/dev/null 2>/dev/null &
 exec spotify >/dev/null 2>/dev/null &
@@ -243,6 +248,7 @@ bar {
 		spotify \
 		battery \
 		dunst \
+		xrandr \
 		layout \
 		brightness \
 		pasource \

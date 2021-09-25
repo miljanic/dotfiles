@@ -1,111 +1,47 @@
 * {
-    backgroundcolor: #282828;
-    bg1: #504945;
-    backgroundcoloralternate: #282828;
-    separatorcolor: #504945;
-    scrollbarcolor: #504945;
-    foregroundcolor: #ebdbb2;
-    foregroundcolorinverse: #ebdbb2;
-    selectioncolor: #504945;
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: false;
 
-    font: "monospace 14";
-    border-color: @separatorcolor;
-    background-color: @backgroundcolor;
-    text-color: @foregroundcolor;
-    margin: 0;
-    margin-bottom: 0;
-    margin-top: 0;
-    spacing: 0;
+    /* Gruvbox dark colors */
+    gruvbox-dark-bg0-soft:     #1d2021;
+    gruvbox-dark-bg1:          #3c3836;
+    gruvbox-dark-fg0:          #1d2021;
+    gruvbox-dark-fg1:          #665c54;
+    gruvbox-dark-red-dark:     #cc241d;
+    gruvbox-dark-red-light:    #fb4934;
+    gruvbox-dark-yellow-dark:  #d79921;
+    gruvbox-dark-yellow-light: #fabd2f;
+    gruvbox-dark-gray:         #a89984;
+
+    /* Theme colors */
+    background:                  @gruvbox-dark-bg0-soft;
+    background-color:            @background;
+    foreground:                  @gruvbox-dark-fg1;
+    border-color:                @background;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @gruvbox-dark-fg1;
+    selected-normal-foreground:  @gruvbox-dark-fg0;
+
+    active-background:           @gruvbox-dark-yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @gruvbox-dark-yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @gruvbox-dark-red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @gruvbox-dark-red-light;
+    selected-urgent-foreground:  @urgent-foreground;
 }
 
-#listview {
-    spacing: 0;
-    scrollbar: true;
-    margin: 0;
-    dynamic: true;
-    padding-top: 500;
-    /* lines: 10; */
-}
-
-#window {
-    background-color: @backgroundcolor;
-    border-color: @separatorcolor;
-    border-color: #928374;
-    border: 4;
-    border-radius: 0;
-    width: 800;
-}
-
-#mainbox {
-    border: 0;
-    padding: 0;
-    background-color: @backgroundcoloralternate;
-}
-
-#element {
-    padding: 16;
-    border: 0 0 1 0;
-    border-color: @separatorcolor;
-    background-color: @backgroundcoloralternate;
-}
-
-#element.selected.normal {
-    background-color: @selectioncolor;
-    text-color: @foregroundcolorinverse;
-    border-radius: 0;
-
-    border: 0 0 1 0;
-    border-color: @separatorcolor;
-}
-
-#element.alternate.normal {
-    background-color: @backgroundcoloralternate;
-}
-
-#element.normal.active {
-    background-color: #7c6f64;
-}
-
-#element.alternate.active {
-    background-color: #7c6f64;
-}
-
-#element.selected.active {
-    background-color: @selectioncolor;
-    text-color: @foregroundcolorinverse;
-    border-radius: 0;
-
-    border: 0 0 1 0;
-    border-color: @separatorcolor;
-}
-
-#inputbar {
-    border: 0 solid 0 solid 1 solid 0 solid;
-    margin: 0;
-    spacing: 0;
-    border-color: @separatorcolor;
-}
-
-#prompt {
-    padding: 16;
-    background-color: @backgroundcoloralternate;
-    border: 0 1 0 0;
-}
-
-#entry {
-    padding: 16;
-}
-
-#scrollbar {
-    border: 0;
-    width: 0;
-    handle-color: @scrollbarcolor;
-    handle-width: 0;
-    background-color: @backgroundcoloralternate;
-}
-
-#element-icon {
-    size: 2.5ch;
-}
-
-/* vim: set ft=css : */
+@import "gruvbox-common.inc"

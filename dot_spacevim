@@ -43,6 +43,7 @@ function! UserInit()
 	Plug 'morhetz/gruvbox'
 	Plug 'preservim/nerdtree'
 	Plug 'mbbill/undotree'
+	Plug 'integralist/vim-mypy'
 
 endfunction
 
@@ -130,6 +131,7 @@ function! UserConfig()
 
 	" NERDTree maps
 	map <Leader>tt :NERDTreeToggle<CR>
+	nnoremap <Leader>tf :NERDTreeFocus<CR>
 
 	" Undotree maps
 	nnoremap <F3> :UndotreeToggle<cr>
@@ -175,7 +177,7 @@ function! UserConfig()
 
 	augroup filetypedetect
 		autocmd BufNew,BufNewFile,BufRead *.network,*.netdev :setfiletype systemd
-		autocmd BufNew,BufNewFile,BufRead *.py :set foldlevel=1
+		" autocmd BufNew,BufNewFile,BufRead *.py :set foldlevel=1
 	augroup END
 
 	" Don't insert title into new files
@@ -216,7 +218,7 @@ function! UserConfig()
 		\ 'c': ['gcc'],
 		\ 'cpp': ['gcc'],
 		\ 'javascript': ['eslint'],
-		\ 'python': ['flake8'],
+		\ 'python': ['flake8', 'mypy', 'pylint'],
 		\ }
 	let g:ale_lint_on_insert_leave = 1
 	let g:ale_fix_on_save = 1

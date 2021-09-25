@@ -34,6 +34,8 @@ antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle MichaelAquilina/zsh-you-should-use
 antigen bundle zsh-users/zsh-completions
+antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
+antigen bundle MichaelAquilina/zsh-auto-notify
 
 # Load theme
 antigen theme https://gitlab.theedgeofrage.com/TheEdgeOfRage/boban-zsh.git
@@ -53,6 +55,9 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx -- vt1; fi
 
 # Variable exports
 export DEFAULT_USER='miljanic'
+export AUTOSWITCH_VIRTUAL_ENV_DIR=".venv"
+export AUTOSWITCH_FILE=".autoswitch"
+export AUTO_NOTIFY_IGNORE=("docker" "man" "sleep" "git" "cz" "vim")
 export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER='chromium'
