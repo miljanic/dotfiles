@@ -1,0 +1,12 @@
+# Function to update oh-my-zsh and plugins
+
+cwd=$(pwd)
+cd ~/.config/zsh/oh-my-zsh
+git pull
+cd ../plugins
+for d in *; do
+  cd $d
+  git pull
+  cd ..
+done
+cd $cwd
