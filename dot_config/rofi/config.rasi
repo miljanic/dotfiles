@@ -1,7 +1,7 @@
 configuration {
 	modi: "drun,ssh";
 	fixed-num-lines: true;
-	font: "JetBrains Mono Regular 20";
+	font: "JetBrains Mono Regular 16";
 	location: 0;
 	show-icons: true;
 	terminal: "roxterm";
