@@ -32,6 +32,7 @@ function! UserInit()
 	Plug 'andymass/vim-matchup'
 	Plug 'tpope/vim-repeat'
 	Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 	" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 	" Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 	Plug 'chr4/nginx.vim'
@@ -121,6 +122,9 @@ function! UserConfig()
 	noremap <C-Q> :Buffers<CR>
 	noremap <C-T> :Tags<CR>
 	noremap <leader>? :Maps<CR>
+
+	" Markdown Preview
+	nmap <Leader>mp <Plug>MarkdownPreviewToggle
 
 	" Nerdcommenter maps
 	nmap <Leader>/ <Plug>NERDCommenterToggle
