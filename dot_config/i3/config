@@ -98,6 +98,8 @@ bindsym $mod+g focus mode_toggle
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
+bindsym $mod+d focus parent
+
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -211,7 +213,7 @@ exec_always python ~/.config/i3/i3-autoname-workspaces.py &
 exec telegram-desktop >/dev/null 2>/dev/null &
 #exec discord >/dev/null 2>/dev/null &
 exec slack >/dev/null 2>/dev/null &
-exec hey-mail >/dev/null 2>/dev/null &
+exec thunderbird >/dev/null 2>/dev/null &
 #exec google-chrome-stable >/dev/null 2>/dev/null &
 # exec firefox-developer-edition >/dev/null 2>/dev/null &
 exec pulseaudio >/dev/null 2>/dev/null &
